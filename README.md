@@ -94,7 +94,7 @@ Ensure you have Ruby installed on your system. You can check by running the code
 
 Clone or download the Beyond Borders repository to your local machine.
 ```sh
-  git clone git@github.com:christianonoh/beyond-borders.git
+  git clone git@github.com:zamcham/ThoughtTrail.git
 ```
 Open your terminal and navigate to the cloned project directory.
 
