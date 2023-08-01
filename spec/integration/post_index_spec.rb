@@ -64,14 +64,14 @@ RSpec.describe 'User posts', type: :feature do
     end
 
     it 'displays pagination when there are more posts than fit on the view' do
-      # Create additional posts to exceed the default number displayed on the view
+      # Create additional posts to exceed the configured number displayed on the view
       additional_posts = []
-      10.times do |n|
+      (Rails.application.config.posts_per_page + 1).times do |n|
         additional_posts << Post.create(title: "Post #{n + 2}", text: "Post content #{n + 2}", author_id: @user1.id)
       end
-
+    
       visit user_posts_path(@user1)
-
+    
       # Ensure pagination section is displayed
       expect(page).to have_css('.pagination', visible: :visible)
     end

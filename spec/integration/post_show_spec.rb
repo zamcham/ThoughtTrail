@@ -8,10 +8,9 @@ RSpec.describe 'Post Show', type: :system do
   user = User.create(name: 'Jhon Doe', photo: 'https://cdn2.iconfinder.com/data/icons/random-outline-3/48/random_14-512.png',
                      posts_counter: 5)
 
-  post = Post.create(title: 'My First Post', text: 'Text for my first post', author: user, comments_counter: 0,
-                     likes_counter: 0)
+  post = user.posts.create(title: 'My First Post', text: 'Text for my first post')
 
-  comment = Comment.create(text: 'Comment for my first post', author: user, post: post)
+  comment = Comment.create(text: 'Comment for my first post', author_id: user.id, post: post)
 
   it "Shows post's title" do
     visit user_post_path(user_id: user.id, id: post.id)
