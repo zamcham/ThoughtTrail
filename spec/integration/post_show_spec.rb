@@ -11,7 +11,7 @@ RSpec.describe 'Post Show', type: :system do
   post = Post.create(title: 'My First Post', text: 'Text for my first post', author: user, comments_counter: 0,
                      likes_counter: 0)
 
-  comment = Comment.create(text: 'Comment for my first post', author: user, post:)
+  comment = Comment.create(text: 'Comment for my first post', author: user, post: post)
 
   it "Shows post's title" do
     visit user_post_path(user_id: user.id, id: post.id)
