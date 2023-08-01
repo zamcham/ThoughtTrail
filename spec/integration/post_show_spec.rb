@@ -17,7 +17,7 @@ RSpec.describe 'Post Show', type: :system do
     expect(page).to have_content(post.title)
   end
 
-  it "Shows post's writter" do
+  it "Shows post's writer" do
     visit user_post_path(user_id: user.id, id: post.id)
     expect(page).to have_content(user.name)
   end
@@ -27,7 +27,7 @@ RSpec.describe 'Post Show', type: :system do
     expect(page).to have_content(post.comments_counter)
   end
 
-  it 'Shows the ammount of likes for the post' do
+  it 'Shows the amount of likes for the post' do
     visit user_post_path(user_id: user.id, id: post.id)
     expect(page).to have_content(post.likes_counter)
   end
@@ -39,7 +39,7 @@ RSpec.describe 'Post Show', type: :system do
 
   it "Shows the user's username" do
     visit user_post_path(user_id: user.id, id: post.id)
-    expect(page).to have_content(comment.author.name)
+    expect(page).to have_content(User.find(comment.author_id).name)
   end
 
   it 'Shows the comments' do
