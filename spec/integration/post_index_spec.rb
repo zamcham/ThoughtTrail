@@ -69,9 +69,9 @@ RSpec.describe 'User posts', type: :feature do
       (Rails.application.config.posts_per_page + 1).times do |n|
         additional_posts << Post.create(title: "Post #{n + 2}", text: "Post content #{n + 2}", author_id: @user1.id)
       end
-    
+
       visit user_posts_path(@user1)
-    
+
       # Ensure pagination section is displayed
       expect(page).to have_css('.pagination', visible: :visible)
     end
